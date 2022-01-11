@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mong</title>
+    <link href="{{ url_for('static', filename='css/loading.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="intro">
+    <div class="intro_container">
+        <div class="intro_contant">
+            <div class="intro_logo"></div>
+            <div class="move">
+                <div class="intro_title">
+                    <span>M</span>
+                    <span>O</span>
+                    <span>N</span>
+                    <span>G</span>
+                </div>
+                <a href="#" class="page_btn">MORE VIEW+</a>
+            </div>
+            <div class="progress_bar">
+                <div class="bar"></div>
+                <div class="rate" data-rate="100"></div>
+            </div>
+        </div>       
+    </div>
+<!--load bar animation-->
+    <script>
+        var progressWarp = $('.progress_bar'),
+            progressBar = progressWarp.find('.bar'),
+            progressText = progressWarp.find('.rate'),
+            progressRate = progressText.attr('data-rate');
+
+        $('.page_btn').click(function(){
+            progressBar.animate({width:progressRate + '%'},2500);
+        
+            setInterval(textAnimation, 1000/10);
+
+            function textAnimation(){
+                var currentRate = progressBar.width() / progressWarp.width() * 100;
+                progressText.text(Math.ceil(currentRate) + '%'); 
+            }
+        })
+    </script>
+</body>
+</html>

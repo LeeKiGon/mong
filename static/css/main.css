@@ -1,0 +1,21 @@
+.main {width: 1200px; margin: 0 auto; padding: 120px 0;}
+.main::after {content: ''; display: block; visibility: hidden; clear: both;}
+.main a {text-decoration: none; display: block; float: left; width: calc(33.33% - 50px);}
+.main a:not(:nth-child(3n+1)) {margin-left: 75px;}
+.main a figure img {width: 100%; display: block; margin-bottom: 15px;}
+.main a:nth-child(n+4) {margin-top: 80px;}
+.main a figure figcaption span {position: relative; font-size: 18px; color: #000; padding: 0 15px; transition-property: color; transition-delay: 0.3s;}
+.main a figure figcaption {text-align: center;}
+.main a figure figcaption span::before {content: ''; position: absolute; top: 0; left: 0px; width: 30px; height: 30px; border-radius: 50px; z-index: -1; transition-duration: 0.6s;}
+.main a:hover figure figcaption span {color: #fff;}
+.main a:nth-child(2) figure figcaption span::before {background-color: #F57171;}
+.main a:nth-child(1) figure figcaption span::before {background-color: #F5C140;}
+.main a:nth-child(4) figure figcaption span::before {background-color: #7290E0;}
+.main a:nth-child(3) figure figcaption span::before {background-color: #4BB297;}
+.main a:nth-child(6) figure figcaption span::before {background-color: #B1C44D;}
+.main a:nth-child(5) figure figcaption span::before {background-color: #4283B2;}
+.main a:nth-child(8) figure figcaption span::before {background-color: #6BB36D;}
+.main a:nth-child(7) figure figcaption span::before {background-color: #EA755E;}
+.main a:hover figure figcaption span::before {width: 100%;}
+.main a:nth-child(9) figure figcaption span::before {background-color: #7E6DB5;}
+

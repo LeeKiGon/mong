@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -175,4 +176,184 @@
     </div>
 </section>
 </body>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Webpage Title -->
+    <title>Log In | MONG</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <meta property="og:title" content="MONG - 기분에 따른 음악 공유"/>
+    <meta property="og:description" content="mini project for Web Plus"/>
+    <meta property="og:image" content="{{ url_for('static', filename='ogimg.png') }}"/>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <style>
+        body {
+            background-color: #f0f4c3;
+            min-height: 100vh;
+        }
+
+        .section {
+            padding: 1rem 1.5rem;
+            max-width: 750px;
+            margin: 40px auto;
+        }
+
+        .title {
+            font-weight: 800;
+            font-size: 5rem;
+            font-family: 'Black Han Sans', sans-serif;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+
+        .is-sparta {
+            color: #00675b !important;
+        }
+
+        .button.is-sparta {
+            background-color: #00675b;
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        .button.is-sparta.is-outlined {
+            background-color: transparent;
+            border-color: #00675b;
+            color: #00675b !important;
+        }
+
+        .help {
+            color: gray;
+        }
+    </style>
+
+    <script>
+        // {% if msg %}
+        //         alert("{{ msg }}")
+        // {% endif %}
+        function login() {
+            let userid = $("#user-id").val()
+            let userpw = $("#user-pw").val()
+
+            //userid가 빈값일 때는 "아이디를 입력해주세요." 문구 나타남
+            if (userid == "") {
+                $("#help-id-login").text("아이디를 입력해주세요.")
+                $("#user-id").focus()
+                return;
+            } else {
+                $("#help-id-login").text("")
+            }
+
+            //password가 빈값일 때는 "비밀번호를 입력해주세요." 문구 나타남
+            if (userpw == "") {
+                $("#help-pw-login").text("비밀번호를 입력해주세요.")
+                $("#user-pw").focus()
+                return;
+            } else {
+                $("#help-pw-login").text("")
+            }
+            $.ajax({
+                type: "POST",
+                url: "/api/login",
+                data: {
+                    id_give: userid,
+                    pw_give: userpw,
+                },
+                //로그인이 정상적으로 되면 토큰 받아옴
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        //이 토큰을 mytoken이라는 키 값으로 쿠키에 저장함
+                        $.cookie('mytoken', response['token'], {path: '/'});
+                        alert('로그인이 완료되었습니다!')
+                        window.location.replace("/main")
+                    } else {
+                        //로그인이 안되면 에러메시지 띄움
+                        alert(response['msg'])
+                    }
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+<section class="hero is-white">
+    <div class="hero-body has-text-centered" style="padding-bottom:1rem;margin:auto;">
+        <h1 class="title is-sparta">MONG</h1>
+        <h3 class="subtitle is-sparta">기분에 따른 음악 공유</h3>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="box" style="max-width: 480px;margin:auto">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <div class="field has-addons">
+                            <div class="control has-icons-left" style="width:100%">
+                                <input id="user-id" class="input" type="text" placeholder="아이디">
+                                <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+                            </div>
+                        </div>
+                        <p id="help-id" class="help is-hidden">아이디는 6-20자의 영문과 숫자만 입력 가능합니다.</p>
+                        <p id="help-id-login" class="help is-danger"></p>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="user-pw" class="input" type="password" placeholder="비밀번호">
+                                <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
+                            </div>
+                            <p id="help-pw" class="help is-hidden">영문과 숫자 조합의 8-20자의 비밀번호를 설정해주세요. 특수문자(!@#$%^&*)도
+                                사용 가능합니다.</p>
+                            <p id="help-pw-login" class="help is-danger"></p>
+                        </div>
+                    </div>
+                    <div id="div-sign-in-or-up" class="has-text-centered">
+                        <nav class="level is-mobile">
+                            <button class="level-item button is-sparta" onclick="login()">
+                                로그인
+                            </button>
+
+                        </nav>
+                        <hr>
+                        <h4 class="mb-3">아직 회원이 아니라면</h4>
+                        <nav class="level is-mobile">
+
+                            <button class="level-item button is-sparta is-outlined"
+                                    onclick="window.location.href = '/register'">
+                                회원가입하기
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+    </div>
+</section>
+</body>
+>>>>>>> 341980424558c2bfec3947091409fab6d5e8ac25
 </html>

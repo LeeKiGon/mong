@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>MONG / 상세페이지</title>
+
+    <meta property="og:title" content="원페이지쇼핑몰"/>
+    <meta property="og:description" content="내가 만든 첫 웹서비스!"/>
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.jpg') }}"/>
+    <style>
+        .img {
+            width: 250px;
+            height: 250px;
+            margin: 20px 0px 0px 0px;
+        }
+        .wrap {
+            width: 800px;
+            margin: 80px 0px 0px 600px;
+            height: 300px;
+            border: 10px;
+            float: left;
+        }
+        .top-line {
+            width: 500px;
+            margin: 10px 10px 10px 10px;
+        }
+        .table{
+            width: 1020px;
+            margin: auto;
+            height: 200px;
+        }
+
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            happy(), happy2(), re()
+        });
+        //크롤링한 음악리스트를 뿌려줍니다
+        function happy() {
+            $.ajax({
+                type: "GET",
+                url: "/api/sub",
+                data: {},
+                success: function (response) {
+                    let mong = response['mong_list']
+                    for (let i = 0; i < mong.length; i++) {
+                        let number = mong[i]['number']
+                        let name = mong[i]['name']
+                        let title = mong[i]['title']
+                        let img = mong[i]['img_url']
+                        let album = mong[i]['album']
+
+                        let temp_html = `<tr>
+                                            <td class="align-middle"><input type="checkbox"></td>
+                                            <th scope="row" style="width: 5px" class="align-middle">${number}</th>
+                                            <td><img src="${img}" width=90 height=90</td>
+                                            <td valign=center style="font-size: 24px" class="align-middle">${title}
+                                            <p style="font-size: 15px">${name}</p></td>
+                                            <td class="align-middle">${album}</td>
+
+                                        </tr>`
+                        $('#box').append(temp_html)
+                    }
+
+
+                }
+            });
+        }
+        //앨범 정보를 뿌려줍니다(제작자, 곡수, 연관태그)
+        function happy2() {
+            $.ajax({
+                type: "GET",
+                url: "/api/sub",
+                data: {},
+                success: function (response) {
+                    let mong = response['mong_list']
+                    for (let i = 0; i < 1; i++) {
+                        let make_name = mong[i]['make_name']
+                        let m_number = mong[i]['m_number']
+                        let tag = mong[i]['tag']
+
+                        let temp_html = `<img src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/079/604/420/79604420_1573103619392_1_140x140.JPG/dims/resize/Q_80,0"
+                                                 class="img" style="float:left; padding-right:50px;">
+                                         <p style="margin-top: 50px; padding-top: 20px;" class="align-middle">제작자 : ${make_name}</p>
+                                         <p>곡수 : ${m_number}</p>
+                                         <p>연관태그 : ${tag}</p>`
+                        $('#m-title').append(temp_html)
+                    }
+                }
+            });
+        }
+        //댓글을 저장합니다.
+        function rArticle() {
+            let comment = $('#review-box').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/review",
+                data: {comment_give: comment},
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+                });
+            }
+        //댓글 창 자동 영역 확장
+        function adjustHeight() {
+                var textEle = $('textarea');
+                textEle[0].style.height = 'auto';
+                var textEleHeight = textEle.prop('scrollHeight');
+                textEle.css('height', textEleHeight);
+                };
+        //댓글 가져와서 보여주기!!
+        function re() {
+            $.ajax({
+                type: "GET",
+                url: "/review",
+                data: {},
+                success: function (response) {
+                    let mong = response['review_list']
+                    for (let i = 0; i < mong.length; i++) {
+                        let commnet = mong[i]['comment']
+                        let temp_html = `<li class="list-group-item" >
+                                            <hr id="r-box">${commnet}</hr>
+                                         </li>`
+                        $('#r-box').append(temp_html)
+                        console.log(commnet)
+                    }
+                }
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+<div class="top-line">
+
+</div>
+<div class="wrap" id="m-title">
+</div>
+<div>
+<table class="table" id="box">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">NO</th>
+        <th scope="col">이미지</th>
+        <th scope="col">곡정보</th>
+        <th scope="col">앨범</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+    <div class="card mb-2" style="white:900px; height: 300px; margin: 30px 450px 450px 450px;">
+	<div class="card-header bg-light" >
+	        <i class="fa fa-comment fa"></i>댓글창
+	</div>
+	<div class="card-body" onkeyup="adjustHeight();" >
+		<ul class="list-group list-group-flush">
+		    <li class="list-group-item" >
+            <hr id="r-box">1</hr>
+			<textarea class="form-control"rows="3"></textarea>
+			<button type="button" class="btn btn-dark mt-3" onclick="rArticle()">댓글 입력</button>
+		    </li>
+		</ul>
+	</div>
+</div>
+
+</div>
+
+</body>

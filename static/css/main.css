@@ -1,3 +1,4 @@
+/*main start*/
 .main {width: 1200px; margin: 0 auto; padding: 120px 0;}
 .main::after {content: ''; display: block; visibility: hidden; clear: both;}
 .main a {text-decoration: none; display: block; float: left; width: calc(33.33% - 50px);}
@@ -18,4 +19,5 @@
 .main a:nth-child(7) figure figcaption span::before {background-color: #EA755E;}
 .main a:hover figure figcaption span::before {width: 100%;}
 .main a:nth-child(9) figure figcaption span::before {background-color: #7E6DB5;}
+/*main fin*/
 

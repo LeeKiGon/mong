@@ -3,7 +3,6 @@ import jwt
 import datetime
 import hashlib
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -15,14 +14,29 @@ SECRET_KEY = 'SPARTA'
 client = MongoClient('localhost', 27017)
 db = client.userinfo
 
+##메인페이지
+@app.route('/main')
+def main():
+    return render_template("main.html")
 
+##상세페이지
+@app.route('/sub')
+def sub():
+    return render_template("sub.html")
+
+##로딩페이지
+@app.route('/loading')
+def loading():
+    return render_template("loading.html")
+
+#payload로 부터 id를 꺼내와 실제 user의 정보를 읽어옴
 @app.route('/')
 def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.userinfo.find_one({"id": payload["id"]})
-        return render_template('main.html', nickname=user_info["nick"])
+        user_info = db.userinfo.find_one({"username": payload["id"]})
+        return render_template('loading.html', user_info=user_info)
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
@@ -43,24 +57,24 @@ def api_login():
     id_receive = request.form['id_give']
     pw_receive = request.form['pw_give']
 
-# pw를 암호화화
-pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
-# id, 암화된 pw 가지고 해당 유저 찾기
-result = db.user.find_one({'id': id_receive, 'pw': pw_hash})
+    # pw를 암호화화
+    pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
+    # id, 암화된 pw 가지고 해당 유저 찾기
+    result = db.user.find_one({'id': id_receive, 'pw': pw_hash})
 
-# 찾으면 JWT 토큰 만들어 발급
-if result is not None:
-    payload = {
-        'id': id_receive,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60 * 60 * 24)  # 로그인 24시간 유지
-    }
-    token = jwt.encode(payload, SECRET_KEY, algorithm='HS256').decode('utf-8')
+    # 찾으면 JWT 토큰 만들어 발급
+    if result is not None:
+        payload = {
+            'id': id_receive,
+            'exp': datetime.utcnow() + timedelta(seconds=60 * 60 * 24)  # 로그인 24시간 유지
+        }
+        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256').decode('utf-8')
 
-    # token 전달
-    return jsonify({'result': 'success', 'token': token})
-    # 찾지 못하면
-else:
-    return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
+        # token 전달
+        return jsonify({'result': 'success', 'token': token})
+        # 찾지 못하면
+    else:
+        return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
 
 # 로그인 페이지로 넘어갑니다.
@@ -79,7 +93,6 @@ def api_register():
     nickname_receive = request.form['nickname_give']
 
     pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
-
     db.user.insert_one({'id': id_receive, 'pw': pw_hash, 'nick': nickname_receive})
 
     return jsonify({'result': 'success'})

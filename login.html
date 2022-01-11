@@ -77,13 +77,13 @@
         //         alert("{{ msg }}")
         // {% endif %}
         function login() {
-            let userid = $("#input-id").val()
-            let userpw = $("#input-pw").val()
+            let userid = $("#user-id").val()
+            let userpw = $("#user-pw").val()
 
             //userid가 빈값일 때는 "아이디를 입력해주세요." 문구 나타남
             if (userid == "") {
                 $("#help-id-login").text("아이디를 입력해주세요.")
-                $("#input-id").focus()
+                $("#user-id").focus()
                 return;
             } else {
                 $("#help-id-login").text("")
@@ -92,7 +92,7 @@
             //password가 빈값일 때는 "비밀번호를 입력해주세요." 문구 나타남
             if (userpw == "") {
                 $("#help-pw-login").text("비밀번호를 입력해주세요.")
-                $("#input-pw").focus()
+                $("#user-pw").focus()
                 return;
             } else {
                 $("#help-pw-login").text("")
@@ -110,7 +110,7 @@
                         //이 토큰을 mytoken이라는 키 값으로 쿠키에 저장함
                         $.cookie('mytoken', response['token'], {path: '/'});
                         alert('로그인이 완료되었습니다!')
-                        window.location.replace("/")
+                        window.location.replace("/main")
                     } else {
                         //로그인이 안되면 에러메시지 띄움
                         alert(response['msg'])
@@ -140,20 +140,20 @@
                                 <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
                             </div>
                         </div>
-                        <p id="help-id" class="help">아이디는 2-10자의 영문과 숫자와 일부 특수문자(._-)만 입력 가능합니다.</p>
+                        <p id="help-id" class="help is-hidden">아이디는 2-10자의 영문과 숫자와 일부 특수문자(._-)만 입력 가능합니다.</p>
                         <p id="help-id-login" class="help is-danger"></p>
                         <div class="field">
                             <div class="control has-icons-left">
                                 <input id="user-pw" class="input" type="password" placeholder="비밀번호">
                                 <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
                             </div>
-                            <p id="help-pw" class="help">영문과 숫자 조합의 8-20자의 비밀번호를 설정해주세요. 특수문자(!@#$%^&*)도
+                            <p id="help-pw" class="help is-hidden">영문과 숫자 조합의 8-20자의 비밀번호를 설정해주세요. 특수문자(!@#$%^&*)도
                                 사용 가능합니다.</p>
                         </div>
                     </div>
                     <div id="div-sign-in-or-up" class="has-text-centered">
                         <nav class="level is-mobile">
-                            <button class="level-item button is-sparta" onclick="login()">
+                            <button class="level-item button is-sparta" onclick="window.location.href = '/main'">
                                 로그인
                             </button>
 

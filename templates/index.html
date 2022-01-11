@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+
+    <meta property="og:title" content="원페이지쇼핑몰" />
+    <meta property="og:description" content="내가 만든 첫 웹서비스!" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.jpg') }}" />
+    <style>
+        .img {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+
+            background-image: url("https://scontent-ssn1-1.xx.fbcdn.net/v/t31.18172-8/14053715_645169908966292_390499983526300538_o.jpg?_nc_cat=110&ccb=1-5&_nc_sid=9267fe&_nc_ohc=cFik_wrDgnMAX96Dr2q&tn=Bm19anxu7o5TGiEm&_nc_ht=scontent-ssn1-1.xx&oh=00_AT837QshBv-k2VssABWvK6e22VneAdvQNkVvWvHvd7tNxg&oe=61E82030");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 30px auto auto auto;
+            font-size: 17px;
+        }
+
+        .font {
+            font-size: 15px;
+            color: blue;
+        }
+
+        .btn {
+            width: 100px;
+            margin: auto;
+            display: block;
+        }
+        .table{
+            width: 500px;
+            margin: auto;
+        }
+
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            q1(), list();
+        });
+
+        function q1() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    let rate = response['rate']
+
+                    let temp_html = `${rate}`
+                    $('#rt').append(temp_html)
+                }
+            })
+        }
+
+        function order() {
+            let name = $('#name').val()
+            let number = $('#number').val()
+            let address = $('#address').val()
+            let phone = $('#phone').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: {name_give: name, number_give: number, address_give: address, phone_give: phone},
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                    }
+                })
+            }
+
+        function list() {
+                $.ajax({
+                    type: "GET",
+                    url: "/order",
+                    data: {},
+                    success: function (response) {
+                        let lists = response['all_list']
+                        for (let i =0; i < lists.length; i++) {
+                            let name = lists[i]['name']
+                            let number = lists[i]['number']
+                            let address = lists[i]['address']
+                            let phone = lists[i]['phone']
+
+                            let temp_html = `<tr>
+                                                  <th>${name}</th>
+                                                  <td>${number} /set</td>
+                                                  <td>${address}</td>
+                                                  <td>${phone}</td>
+                                             </tr>`
+                            $('#list-box').append(temp_html)
+                        }
+
+                    }
+                })
+            }
+    </script>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="img"></div>
+    <h1>새콤달콤을 팝니다 <span class="font">가격: 1500원 /개</span></h1>
+    <div>무심코 하나 쏙~ 까서 입에 넣고 오물 거리다 보면
+        어느덧 다른 맛을 찾게 되는 매력적인 이 녀석!!
+        키위/레몬에이드/포도/딸기맛 까지
+        오늘 하루 새콤달콤하게 보내보세요!
+    </div>
+    <div>한율 : <span id="rt" style="color: red;"> </span></div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">주문자 이름</span>
+        </div>
+        <input id="name" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">수량</label>
+        </div>
+        <select id="number" class="custom-select" id="inputGroupSelect01">
+            <option selected>-- 수량을 선택하세요 --</option>
+            <option value="1">1 set</option>
+            <option value="2">2 set</option>
+            <option value="3">3 set</option>
+            <option value="3">4 set</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">주소</span>
+        </div>
+        <input id="address" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">전화번호</span>
+        </div>
+        <input id="phone" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <button type="button" onclick="order()" class="btn btn-primary">주문하기</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">이름</th>
+      <th scope="col">수량</th>
+      <th scope="col">주소</th>
+      <th scope="col">전화번호</th>
+    </tr>
+  </thead>
+  <tbody id="list-box">
+
+  </tbody>
+</table>
+</body>
+
+</html>

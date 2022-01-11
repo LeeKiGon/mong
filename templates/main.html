@@ -12,14 +12,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </head>
 <body>
+<!--hearder-->
     <header>
         <h1>
             <a href="/" onclick="to_main()">
-                <img src="{{ url_for('static', filename='img/logo.png') }}"
+                <img src="{{ url_for('static', filename='img/logo.png') }}">
+                <span>MONG</span>
             </a>
         </h1>
         <a href="/register">로그아웃</a>
     </header>
+<!--fin header-->
+<!--main-->
     <section class="main">
         <a href="/sub">
             <figure>
@@ -76,8 +80,10 @@
             </figure>
         </a>
     </section>
+<!--fin main-->
     <footer>
         <p>Copyright ⓒ2022.01.10, 항해 5기 C반 11조</p>
     </footer>
+<!--fin footer-->
 </body>
 </html>

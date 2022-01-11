@@ -11,6 +11,7 @@ db = client.userinfo
 import hashlib
 
 # 테스트용 메인페이지 접속
+#### 추후에 페이지 병합할 때 삭제하거나 mainpage접속 코드로 변경해야합니다!! ####
 @app.route('/')
 def home():
     return render_template('test.html')
@@ -22,8 +23,8 @@ def register():
 
 
 # [회원가입 API]
-# id와 pw, nickname을 받아서 mongoDB에 저장합니다.
-# 저장하기 전에 pw를 sha256 방법(=단방향 암호화. 받은 사람이 풀어볼 수 없습니다.)으로 암호화해서 저장합니다.
+# id와 pw, nickname을 받아서 mongoDB에 저장.
+# 저장하기 전에 pw를 sha256 방법(=단방향 암호화. 받은 사람이 풀어볼 수 없음.)으로 암호화해서 저장함.
 @app.route('/api/register', methods=['POST'])
 def api_register():
     id_receive = request.form['id_give']

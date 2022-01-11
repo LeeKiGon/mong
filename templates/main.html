@@ -8,8 +8,7 @@
     <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <!--hearder-->
@@ -86,9 +85,13 @@
     </footer>
 <!--fin footer-->
 <script>
+    window.onload = function (){
+        alert('{{ user_info.nick }} 님, 오늘의 기분은 어떠신가요?')
+    }
+
     function sign_out() {
     alert('로그아웃!')
-}
+    }
 </script>
 </body>
 </html>

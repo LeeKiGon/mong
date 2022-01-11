@@ -122,7 +122,7 @@
                 }
                 if (!is_id(userid)) {
                     // 유저가 정규표현식에 맞지 않는 닉네임을 작성하였다면
-                    $("#help-id").text("아이디의 형식을 확인해주세요. 알파벳 대소문자 및 숫자만 가능합니다!").removeClass("explanation-text").addClass("is-danger")
+                    $("#help-id").text("아이디의 형식을 확인해주세요. 알파벳 대소문자 및 숫자만 가능합니다!").removeClass("explanation-text").removeClass("is-safe").addClass("is-danger")
                     $("#user-id").focus()
                     return;
                 }

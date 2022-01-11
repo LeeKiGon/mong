@@ -4,9 +4,13 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 # 페이지 이동
-## 메인페이지
+## 로딩페이지
 @app.route('/')
 def main():
+    return render_template("loading.html")
+
+@app.route('/main')
+def load():
     return render_template("main.html")
 
 ##상세페이지

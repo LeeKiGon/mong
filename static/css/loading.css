@@ -1,7 +1,7 @@
 .intro {overflow: hidden;}
 .intro_container {width: 100%; height: 100vh; position: fixed; z-index: 9999;}
 .intro_container .intro_contant {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
-.intro_container .intro_contant .intro_logo {width: 501px; height: 466px; background-image: url("/img/icon_happy.png"); margin: 0 auto;}
+.intro_container .intro_contant .intro_logo {width: 501px; height: 466px; background-image: url("../img/icon_happy.png"); margin: 0 auto;}
 .intro_container .intro_contant .move {text-align: center;}
 .intro_container .intro_contant .move .intro_title {margin-bottom: 15px;}
 .intro_container .intro_contant .move .intro_title span {display: inline-block; margin: 0 -.05em; animation: loading .8s infinite; font-size: 50px; font-weight: 600;}

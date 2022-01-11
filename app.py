@@ -13,7 +13,7 @@ db = client.dbmini
 # HTML 화면 보여주기
 @app.route('/')
 def home():
-    return render_template('haapy.html')
+    return render_template('1.happy-기쁨.html')
 
 
 # API 역할을 하는 부분

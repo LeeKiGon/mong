@@ -55,7 +55,7 @@
             happy(), happy2(), re()
         });
         //크롤링한 음악리스트를 뿌려줍니다
-        function happy() {
+        function music() {
             $.ajax({
                 type: "GET",
                 url: "/api/sub",
@@ -104,7 +104,6 @@
                                          <p>곡수 : ${m_number}</p>
                                          <p>연관태그 : ${tag}</p>`
                         $('#m-title').append(temp_html)
-                        console.log(make_name)
                     }
                 }
             });

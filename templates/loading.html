@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mong</title>
+    <title>MONG</title>
     <link href="{{ url_for('static', filename='css/loading.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -29,7 +29,7 @@
 </div>
 <!--load bar animation-->
 <script>
-    var progressWarp = $('.progress_bar'),
+    let progressWarp = $('.progress_bar'),
         progressBar = progressWarp.find('.bar'),
         progressText = progressWarp.find('.rate'),
         progressRate = progressText.attr('data-rate');
@@ -40,7 +40,7 @@
         setInterval(textAnimation, 1000 / 10);
 
         function textAnimation() {
-            var currentRate = progressBar.width() / progressWarp.width() * 100;
+            let currentRate = progressBar.width() / progressWarp.width() * 100;
             progressText.text(Math.ceil(currentRate) + '%');
         }
     })

@@ -22,106 +22,14 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
 
-    <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-
-    <style>
-        body {
-            background-color: #f0f4c3;
-            min-height: 100vh;
-        }
-
-        .section {
-            padding: 1rem 1.5rem;
-            max-width: 750px;
-            margin: 40px auto;
-        }
-
-        .title {
-            font-weight: 800;
-            font-size: 5rem;
-            font-family: 'Black Han Sans', sans-serif;
-        }
-
-        .subtitle {
-            font-size: 2rem;
-            font-family: 'Do Hyeon', sans-serif;
-        }
-
-        .is-sparta {
-            color: #00675b !important;
-        }
-
-        .button.is-sparta {
-            background-color: #00675b;
-            border-color: transparent;
-            color: #fff !important;
-        }
-
-        .button.is-sparta.is-outlined {
-            background-color: transparent;
-            border-color: #00675b;
-            color: #00675b !important;
-        }
-
-        .help {
-            color: gray;
-        }
-    </style>
-
-    <script>
-        // {% if msg %}
-        //         alert("{{ msg }}")
-        // {% endif %}
-        function login() {
-            let userid = $("#user-id").val()
-            let userpw = $("#user-pw").val()
-
-            //userid가 빈값일 때는 "아이디를 입력해주세요." 문구 나타남
-            if (userid == "") {
-                $("#help-id-login").text("아이디를 입력해주세요.")
-                $("#user-id").focus()
-                return;
-            } else {
-                $("#help-id-login").text("")
-            }
-
-            //password가 빈값일 때는 "비밀번호를 입력해주세요." 문구 나타남
-            if (userpw == "") {
-                $("#help-pw-login").text("비밀번호를 입력해주세요.")
-                $("#user-pw").focus()
-                return;
-            } else {
-                $("#help-pw-login").text("")
-            }
-            $.ajax({
-                type: "POST",
-                url: "/api/login",
-                data: {
-                    id_give: userid,
-                    pw_give: userpw,
-                },
-                //로그인이 정상적으로 되면 토큰 받아옴
-                success: function (response) {
-                    if (response['result'] == 'success') {
-                        //이 토큰을 mytoken이라는 키 값으로 쿠키에 저장함
-                        $.cookie('mytoken', response['token'], {path: '/'});
-                        alert('로그인이 완료되었습니다!')
-                        window.location.replace("/main")
-                    } else {
-                        //로그인이 안되면 에러메시지 띄움
-                        alert(response['msg'])
-                    }
-                }
-            });
-        }
-    </script>
-
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
 </head>
 <body>
+{% include "global/header.html" %}
 <section class="hero is-white">
     <div class="hero-body has-text-centered" style="padding-bottom:1rem;margin:auto;">
         <h1 class="title is-sparta">MONG</h1>
@@ -172,8 +80,11 @@
                 </div>
             </article>
         </div>
-
     </div>
 </section>
+{% include "global/footer.html" %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="{{url_for('static', filename='js/common.js')}}"></script>
 </body>
 </html>

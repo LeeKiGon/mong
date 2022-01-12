@@ -5,7 +5,6 @@ import jwt
 import datetime
 import hashlib
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -14,6 +13,7 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 SECRET_KEY = 'SPARTA'
 
+# client = MongoClient('mongodb://test:test@localhost', 27017)
 client = MongoClient('localhost', 27017)
 db = client.userinfo
 

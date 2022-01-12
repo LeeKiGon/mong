@@ -25,7 +25,7 @@
 <!--hearder-->
     <header>
         <h1>
-            <a onclick="to_main()">
+            <a href="/main">
                 <img src="{{ url_for('static', filename='img/logo.png') }}">
                 <span>MONG</span>
             </a>
@@ -97,7 +97,6 @@
 <!--fin footer-->
 <script>
     function sign_out() {
-        console.log($.cookie())
         $.removeCookie('mytoken', {path: '/'})
         alert('로그아웃!')
     }

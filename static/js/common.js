@@ -1,3 +1,15 @@
+//header start
+function page_js() {
+    if($('body').hasClass('login_page') === true){
+        alert('로그인이 필요합니다!');
+    }else if($('body').hasClass('register_page') === true){
+        alert('회원가입이 필요합니다!');
+    }else if($('body').hasClass('main_page') === true){
+        window.location.href = '/main';
+    }
+}
+//fin header
+
 //loadind start
 //loading var animation
 var progressWarp = $('.progress_bar'),
@@ -248,3 +260,4 @@ function sign_out() {
     alert('로그아웃!');
 };
 //fin main
+

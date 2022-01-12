@@ -3,7 +3,7 @@ header {background-color: #f0f4c3; box-sizing: border-box; padding: 15px 20px 15
 header a {text-decoration: none;}
 header:after {content: ''; display: block; visibility: hidden; clear: both;}
 header h1 {color: #fff; margin: 0; float: left;}
-header h1 a {display: block;}
+header h1 a {display: block; text-decoration: none;}
 header h1 a img {width: 40px; vertical-align: bottom;}
 header h1 a span {color: #fff; line-height: 40px; color: #00675b; font-size: 25px;}
 header > a {display: block; float: right; line-height: 40px; color: #00675b;}

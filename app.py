@@ -13,9 +13,9 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 SECRET_KEY = 'SPARTA'
 
-# client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient('localhost', 27017)
-db = client.userinfo
+client = MongoClient('mongodb://test:test@13.125.48.221/.dbuserinfo')
+# client = MongoClient('localhost', 27017)
+db = client.dbuserinfo
 
 ##메인페이지
 @app.route('/main')
@@ -24,30 +24,57 @@ def main():
 
 ##상세페이지
 # API 역할을 하는 부분
-@app.route('/api/sub', methods=['GET'])
+#happy 크롤링데이터
+@app.route('/api/happy', methods=['GET'])
 def happy():
     mlist = list(db.happy_list.find({}, {'_id': False}))
     return jsonify({'mong_list': mlist})
-
-@app.route('/review', methods=['POST'])
-def saving():
+#anger 크롤링데이터
+@app.route('/api/anger', methods=['GET'])
+def anger():
+    mlist = list(db.anger_list.find({}, {'_id': False}))
+    return jsonify({'mong_list': mlist})
+#happy 리뷰 입력받기
+@app.route('/api/happy_review', methods=['POST'])
+def happy_saving():
     comment_receive = request.form['comment_give']
     doc = {
         'comment': comment_receive
     }
-    db.review.insert_one(doc)
+    db.happy_review.insert_one(doc)
     return jsonify({'msg': '저장 되었습니다!'})
+#happy 리뷰 보여주기
+@app.route('/api/happy_review2', methods=['GET'])
+def happy_review():
+    review = list(db.happy_review.find({}, {'_id': False}))
+    return jsonify({'happyreview_list': review})
 
-
-@app.route('/api/review', methods=['GET'])
-def review():
-    review = list(db.review.find({}, {'_id': False}))
-    return jsonify({'review_list': review})
-
-@app.route('/api/delete', methods=['POST'])
-def delete_star():
+#anger 리뷰 입력받기
+@app.route('/api/anger_review', methods=['POST'])
+def anger_saving():
     comment_receive = request.form['comment_give']
-    db.review.delete_one({'comment': comment_receive})
+    doc = {
+        'comment': comment_receive
+    }
+    db.anger_review.insert_one(doc)
+    return jsonify({'msg': '저장 되었습니다!'})
+#anger 리뷰 보여주기
+@app.route('/api/anger_review2', methods=['GET'])
+def anger_review():
+    review = list(db.anger_review.find({}, {'_id': False}))
+    return jsonify({'angerreview_list': review})
+
+#happy 리뷰 삭제하기
+@app.route('/api/happy_delete', methods=['POST'])
+def happy_delete():
+    comment_receive = request.form['comment_give']
+    db.happy_review.delete_one({'comment': comment_receive})
+    return jsonify({'msg': '삭제 완료!'})
+#anger 리뷰 삭제하기
+@app.route('/api/anger_delete', methods=['POST'])
+def anger_delete():
+    comment_receive = request.form['comment_give']
+    db.anger_review.delete_one({'comment': comment_receive})
     return jsonify({'msg': '삭제 완료!'})
 
 ##로딩페이지
@@ -55,9 +82,13 @@ def delete_star():
 def loading():
     return render_template("loading.html")
 
-@app.route('/sub')
-def sub():
+@app.route('/happy')
+def happy_html():
     return render_template("happy.html")
+
+@app.route('/anger')
+def anger_html():
+    return render_template("anger.html")
 
 #payload로 부터 id를 꺼내와 실제 user의 정보를 읽어옴
 @app.route('/loading')

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Webpage Title -->
+    <title>Happy | MONG</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="MONG - 기쁠 때 듣는 음악을 공유해주세요!"/>
+    <meta property="og:description" content="mini project for Web Plus"/>
+    <meta property="og:image" content="{{ url_for('static', filename='img/icon_happy.png') }}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/layout.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <style>
+        .img {
+            width: 250px;
+            height: 250px;
+            margin: 20px 0px 0px 0px;
+        }
+
+        .wrap {
+            width: 800px;
+            margin: 80px 0px 0px 600px;
+            height: 300px;
+            border: 10px;
+            float: left;
+        }
+
+        .top-line {
+            width: 500px;
+            margin: 10px 10px 10px 10px;
+        }
+
+        .table {
+            width: 1020px;
+            margin: auto;
+            height: 200px;
+        }
+
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            happy(), happy2(), re()
+        });
+
+        //크롤링한 음악리스트를 뿌려줍니다
+        function happy() {
+            $.ajax({
+                type: "GET",
+                url: "/api/happy",
+                data: {},
+                success: function (response) {
+                    let mong = response['mong_list']
+                    for (let i = 0; i < mong.length; i++) {
+                        let number = mong[i]['number']
+                        let name = mong[i]['name']
+                        let title = mong[i]['title']
+                        let img = mong[i]['img_url']
+                        let album = mong[i]['album']
+
+                        let temp_html = `<tr>
+                                            <td class="align-middle"><input type="checkbox"></td>
+                                            <th scope="row" style="width: 5px" class="align-middle">${number}</th>
+                                            <td><img src="${img}" width=90 height=90</td>
+                                            <td valign=center style="font-size: 24px" class="align-middle">${title}
+                                            <p style="font-size: 15px">${name}</p></td>
+                                            <td class="align-middle">${album}</td>
+                                        </tr>`
+                        $('#box').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        //앨범 정보를 뿌려줍니다(제작자, 곡수, 연관태그)
+        function happy2() {
+            $.ajax({
+                type: "GET",
+                url: "/api/happy",
+                data: {},
+                success: function (response) {
+                    let mong = response['mong_list']
+                    for (let i = 0; i < 1; i++) {
+                        let make_name = mong[i]['make_name']
+                        let m_umber = mong[i]['m_umber']
+                        let tag = mong[i]['tag']
+                        let img = mong[i]['img_url']
+
+                        let temp_html = `<img src="${img}" class="img" style="float:left; padding-right:50px;">
+                                         <p style="margin-top: 50px; padding-top: 20px;" class="align-middle">제작자 : ${make_name}</p>
+                                         <hr>
+                                         <p>곡수 : ${m_umber}</p>
+                                         <hr>
+                                         <p>연관태그 : ${tag}</p>
+                                         <hr>`
+                        $('#m-title').append(temp_html)
+                        console.log(m_umber)
+                    }
+                }
+            });
+        }
+
+        //댓글을 저장합니다.
+        function rArticle() {
+            let comment = $('#reviewbox').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/api/happy_review",
+                data: {comment_give: comment},
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            });
+        }
+
+        //댓글 창 자동 영역 확장
+        function adjustHeight() {
+            let textEle = $('textarea');
+            textEle[0].style.height = 'auto';
+            let textEleHeight = textEle.prop('scrollHeight');
+            textEle.css('height', textEleHeight);
+        };
+
+        //댓글 가져와서 보여주기!!
+        function re() {
+            $.ajax({
+                type: "GET",
+                url: "/api/happy_review2",
+                data: {},
+                success: function (response) {
+                    let mong = response['happyreview_list']
+                    for (let i = 0; i < mong.length; i++) {
+                        let comment = mong[i]['comment']
+                        let temp_html = `<li class="list-group-item" >
+                                            <img src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_77.png?type=c77_77" style="float:left; width:50px; height:50px;">
+                                            <p style="width:700px; height:60px; margin: 0px 0px 0px 70px;">${comment}</p>
+                                            <p style="margin: 10px;">익명</p>
+                                            <button style="float: right; margin:-70px 0px 0px -100px;" type="button" class="btn btn-primary" onclick="review_delete('${comment}')">삭제</button>
+                                         </li>`
+                        $('#r-box').append(temp_html)
+                        console.log(comment)
+                    }
+                }
+            })
+        }
+
+        //댓글 삭제!!
+        function review_delete(comment) {
+            $.ajax({
+                type: 'POST',
+                url: '/api/happy_delete',
+                data: {comment_give: comment},
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload()
+                }
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+{% include "global/header.html" %}
+<div class="top-line">
+
+</div>
+<div class="wrap" id="m-title">
+</div>
+<div>
+    <table class="table" id="box">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">NO</th>
+            <th scope="col">이미지</th>
+            <th scope="col">곡정보</th>
+            <th scope="col">앨범</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <div>
+        <div class="card mb-2" style="white:900px; height: 0px; margin: 30px 450px 450px 450px;"
+             onkeyup="adjustHeight();">
+            <div class="card-header bg-light">
+                <i class="fa fa-comment fa"></i>댓글창
+            </div>
+            <div class="card-body" onkeyup="adjustHeight();">
+                <p id="r-box"></p>
+                <textarea class="form-control" rows="3" id="reviewbox"></textarea>
+                <button type="button" class="btn btn-dark mt-3" onclick="rArticle()">댓글 입력</button>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "global/footer.html" %}
+</body>

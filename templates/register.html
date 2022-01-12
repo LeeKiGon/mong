@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
     <head>
@@ -70,4 +71,78 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="{{url_for('static', filename='js/common.js')}}"></script>
     </body>
+=======
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Webpage Title -->
+        <title>Register | MONG</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta property="og:title" content="MONG - 회원가입 페이지"/>
+        <meta property="og:description" content="mini project for Web Plus"/>
+        <meta property="og:image" content="{{ url_for('static', filename='img/og_loading.png') }}"/>
+
+        <!-- Bulma CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/register.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
+    </head>
+    <body class="register_page">
+    {% include "global/header.html" %}
+        <section class="hero is-primary">
+            <div class="hero-body">
+                <p class="title">
+                    회원가입
+                </p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="box">
+                <div class="field">
+                    <label class="label">아이디</label>
+                    <div class="control">
+                        <input class="input" type="text" id="user-id" placeholder="사용할 아이디를 입력하세요.">
+                        <p class="explanation-text" id="help-id"> ID는 6~20자리 이상의 알파벳 대소문자 및 숫자만 사용할 수 있습니다.</p>
+                    </div>
+                </div>
+                <button class="button is-primary is-rounded is-same-button" onclick="check_id()">중복확인</button>
+                <div class="field">
+                    <label class="label">비밀번호</label>
+                    <div class="control">
+                        <input class="input" type="password" id="user-pw" placeholder="사용할 비밀번호를 입력하세요.">
+                        <p class="explanation-text" id="help-pw">비밀번호는 8~20자리의 알파벳 소문자와 숫자, 특수문자(!@#$%^&*)의 조합이어야 합니다.</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">비밀번호확인</label>
+                    <div class="control">
+                        <input class="input" type="password" id="user-pw2" placeholder="비밀번호를 한번 더 입력해주세요.">
+                        <p class="explanation-text" id="help-pw2"></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">닉네임</label>
+                    <div class="control">
+                        <input class="input" type="text"  id="user-nick" placeholder="사용할 닉네임을 입력하세요.">
+                        <p class="explanation-text" id="help-nick"> 닉네임은 한글만 2~8자까지 입력이 가능합니다.</p>
+                        <button class="button is-primary is-rounded is-same-button" onclick="check_nickname()">중복확인</button>
+                    </div>
+                </div>
+
+                <button class="button is-primary is-rounded register-button" onclick="register()">가입하기</button>
+            </div>
+        </section>
+    {% include "global/footer.html" %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="{{url_for('static', filename='js/common.js')}}"></script>
+    </body>
+>>>>>>> d78ada771029323a0c9753db125593c60968c45b
 </html>

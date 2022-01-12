@@ -8,3 +8,16 @@ header h1 a img {width: 40px; vertical-align: bottom;}
 header h1 a span {color: #fff; line-height: 40px; color: #00675b; font-size: 25px;}
 header > a {display: block; float: right; line-height: 40px; color: #00675b;}
 /*header fin*/
+
+/*login header start*/
+.login_page header {text-align: center; padding: 15px 0;}
+.login_page header h1 {display: inline-block; float: none;}
+.login_page header h1 a span {display: none;}
+.login_page header > a {display: none;}
+/*fin header*/
+
+/*register header start*/
+.register_page header {text-align: center; padding: 15px 0;}
+.register_page header h1 {display: inline-block; float: none;}
+.register_page header > a {display: none;}
+/*fin header*/

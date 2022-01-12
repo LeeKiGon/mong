@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Webpage Title -->
+    <title>Loading | MONG</title>
+
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONG</title>
+    <meta property="og:title" content="MONG - 로딩중입니다!"/>
+    <meta property="og:description" content="mini project for Web Plus"/>
+    <meta property="og:image" content="{{ url_for('static', filename='img/og_loading.png') }}"/>
+
+    <!-- Bootstrap CSS -->
     <link href="{{ url_for('static', filename='css/loading.css') }}" rel="stylesheet">
+
+    <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="intro">
@@ -29,7 +39,7 @@
 </div>
 <!--load bar animation-->
 <script>
-    let progressWarp = $('.progress_bar'),
+    var progressWarp = $('.progress_bar'),
         progressBar = progressWarp.find('.bar'),
         progressText = progressWarp.find('.rate'),
         progressRate = progressText.attr('data-rate');
@@ -40,7 +50,7 @@
         setInterval(textAnimation, 1000 / 10);
 
         function textAnimation() {
-            let currentRate = progressBar.width() / progressWarp.width() * 100;
+            var currentRate = progressBar.width() / progressWarp.width() * 100;
             progressText.text(Math.ceil(currentRate) + '%');
         }
     })

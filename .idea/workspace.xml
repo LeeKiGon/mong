@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82b87b98-96a3-4de9-ba68-f259061a009a" name="Changes" comment="" />
+    <list default="true" id="82b87b98-96a3-4de9-ba68-f259061a009a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/testmong.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/testmong.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/happy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/happy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,9 +39,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
   </component>
-  <component name="RunManager" selected="Flask server.Flask (app.py)">
+  <component name="RunManager" selected="Python.testmong">
     <configuration name="loading.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/testmong/templates/loading.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -113,6 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641946752162</updated>
       <workItem from="1641946755597" duration="2630000" />
+      <workItem from="1641949949059" duration="6479000" />
     </task>
     <servers />
   </component>
@@ -129,10 +138,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/testmong$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1641948944698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/testmong$testmong.coverage" NAME="testmong Coverage Results" MODIFIED="1641946803228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/app_py$testmong.coverage" NAME="testmong Coverage Results" MODIFIED="1641955812077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/testmong$crawling.coverage" NAME="crawling Coverage Results" MODIFIED="1641948933244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

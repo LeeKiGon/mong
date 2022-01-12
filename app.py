@@ -1,3 +1,5 @@
+import subprocess
+
 from pymongo import MongoClient
 import jwt
 import datetime
@@ -149,4 +151,5 @@ def check_dupnick():
 
 
 if __name__ == '__main__':
+    subprocess.call('crawling.py', shell=True)
     app.run('0.0.0.0', port=5000, debug=True)

@@ -1,9 +1,10 @@
+import subprocess
+
 from pymongo import MongoClient
 import jwt
 import datetime
 import hashlib
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -49,17 +50,21 @@ def delete_star():
     return jsonify({'msg': '삭제 완료!'})
 
 ##로딩페이지
-@app.route('/loading')
+@app.route('/')
 def loading():
     return render_template("loading.html")
 
+@app.route('/sub')
+def sub():
+    return render_template("happy.html")
+
 #payload로 부터 id를 꺼내와 실제 user의 정보를 읽어옴
-@app.route('/')
+@app.route('/loading')
 def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        json.dumps((payload))
+
         return render_template('login.html')
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
@@ -145,4 +150,5 @@ def check_dupnick():
 
 
 if __name__ == '__main__':
+    subprocess.call('crawling.py', shell=True)
     app.run('0.0.0.0', port=5000, debug=True)

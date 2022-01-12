@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 
 client = MongoClient('localhost', 27017)
-db = client.dbmini
+db = client.userinfo
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
@@ -13,9 +13,9 @@ data = requests.get('https://www.genie.co.kr/playlist/detailView?plmSeq=12367', 
 soup = BeautifulSoup(data.text, 'html.parser')
 
 trs = soup.select('#body-content > div.songlist-box > div.music-list-wrap > table > tbody > tr')
-trs2= soup.select('#body-content > div.playlist-info > div.info > dl')
+trs2 = soup.select('#body-content > div.playlist-info > div.info > dl')
 
-base= "https:" #이미지 url에 https:없어서 링크가 안걸려서 추가!!
+base = "https:" #이미지 url에 https:없어서 링크가 안걸려서 추가!!
 
 db.happy_list.delete_many({}) ##기존 db데이터 삭제!!
 for tr2 in trs2: #앨범 title 정보 크롤링
@@ -38,7 +38,7 @@ for tr in trs: #앨범 안 음악 크롤링
             'm_number': m_number,
             'tag': tag
         }
-        # db.happy_list.insert_one(doc)    #기쁨
+        db.happy_list.insert_one(doc)    #기쁨
         # db.flutter_list.insert_one(doc)    #설렘
         # db.worry_list.insert_one(doc)      #일/공부
         # db.cvs_list.insert_one(doc)    #기분전환
@@ -46,4 +46,4 @@ for tr in trs: #앨범 안 음악 크롤링
         # db.comfort_list.insert_one(doc)   #위로
         # db.anger_list.insert_one(doc)     #분노
         # db.eht_list.insert_one(doc)    #지침
-        db.sleep_list.insert_one(doc)      #새벽
+        # db.sleep_list.insert_one(doc)      #새벽

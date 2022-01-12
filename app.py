@@ -6,11 +6,11 @@ app = Flask(__name__)
 # 페이지 이동
 ## 로딩페이지
 @app.route('/')
-def main():
+def load():
     return render_template("loading.html")
 
 @app.route('/main')
-def load():
+def main():
     return render_template("main.html")
 
 ##상세페이지

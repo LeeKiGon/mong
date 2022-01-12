@@ -1,20 +1,20 @@
 .intro {overflow: hidden;}
-.intro_container {width: 100%; height: 100vh; position: fixed; z-index: 9999;}
+.intro_container {width: 100%; height: 100vh; position: fixed; z-index: 9999; background-color: #f0f4c3;}
 .intro_container .intro_contant {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
-.intro_container .intro_contant .intro_logo {width: 501px; height: 466px; background-image: url("../img/icon_happy.png"); margin: 0 auto;}
-.intro_container .intro_contant .move {text-align: center;}
-.intro_container .intro_contant .move .intro_title {margin-bottom: 15px;}
-.intro_container .intro_contant .move .intro_title span {display: inline-block; margin: 0 -.05em; animation: loading .8s infinite; font-size: 50px; font-weight: 600;}
+.intro_container .intro_contant .intro_logo {width: 380px; height: 400px; background-image: url("../img/img_loading.png"); margin: 0 auto 20px;}
+.intro_container .intro_contant .move {text-align: center; margin-bottom: 25px;}
+.intro_container .intro_contant .move .intro_title {margin-bottom: 20px;}
+.intro_container .intro_contant .move .intro_title span {display: inline-block; margin: 0 5px; animation: loading .8s infinite; font-size: 45px; font-weight: 600; color: #00675b;}
 .intro_container .intro_contant .move .intro_title span:nth-child(2) {animation-delay: .1s;}
 .intro_container .intro_contant .move .intro_title span:nth-child(3) {animation-delay: .2s;}
 .intro_container .intro_contant .move .intro_title span:nth-child(4) {animation-delay: .3s;}
 .intro_container .intro_contant .move .intro_title span:nth-child(5) {animation-delay: .4s;}
 .intro_container .intro_contant .move .intro_title span:nth-child(6) {animation-delay: .5s;}
 .intro_container .intro_contant .move .intro_title span:nth-child(7) {animation-delay: .6s;}
-.intro_container .intro_contant .move a {color: #000; text-decoration: none;}
-.intro_container .intro_contant .progress_bar {position: relative; width: 960px; height: 30px; margin: 3em auto; border: 1px solid #000;}
-.intro_container .intro_contant .progress_bar .bar {position: absolute; left: 0; top: 0; bottom: 0; background-color: #000;}
-.intro_container .intro_contant .progress_bar .rate {position: absolute; top: 0; bottom: 0; right: 15px; font-size: 16px; color: #000; line-height: 30px;}
+.intro_container .intro_contant .move a {color: #00675b; text-decoration: none;}
+.intro_container .intro_contant .progress_bar {position: relative; width: 960px; height: 45px; border: 2px solid #00675b; border-radius: 30px; overflow: hidden;}
+.intro_container .intro_contant .progress_bar .bar {position: absolute; left: 0; top: 0; bottom: 0; background-color: #00675b;}
+.intro_container .intro_contant .progress_bar .rate {position: absolute; top: 0; bottom: 0; right: 15px; font-size: 16px; color: #00675b; line-height: 45px;}
 
 /*text animation*/
 @keyframes loading {

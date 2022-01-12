@@ -5,23 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mong</title>
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<!--hearder-->
-    <header>
-        <h1>
-            <a href="/main">
-                <img src="{{ url_for('static', filename='img/logo.png') }}">
-                <span>MONG</span>
-            </a>
-        </h1>
-        <a href="/login" onclick="sign_out()">로그아웃</a>
-    </header>
-<!--fin header-->
+{% include "global/header.html" %}
 <!--main-->
     <section class="main">
         <a href="/">
@@ -79,19 +69,8 @@
             </figure>
         </a>
     </section>
-<!--fin main-->
-    <footer>
-        <p>Copyright ⓒ2022.01.10, 항해 5기 C반 11조</p>
-    </footer>
-<!--fin footer-->
-<script>
-    window.onload = function (){
-        alert('{{ user_info.nick }} 님, 오늘의 기분은 어떠신가요?')
-    }
-
-    function sign_out() {
-    alert('로그아웃!')
-    }
-</script>
+{% include "global/footer.html" %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{url_for('static', filename='js/common.js')}}"></script>
 </body>
 </html>

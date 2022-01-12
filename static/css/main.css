@@ -1,14 +1,14 @@
 /*main start*/
 .main {width: 1200px; margin: 0 auto; padding: 120px 0;}
 .main::after {content: ''; display: block; visibility: hidden; clear: both;}
-.main a {text-decoration: none; display: block; float: left; width: calc(33.33% - 50px);}
-.main a:not(:nth-child(3n+1)) {margin-left: 75px;}
+.main a {text-decoration: none; display: block; float: left; width: calc(33.33% - 100px);}
+.main a:not(:nth-child(3n+1)) {margin-left: 150px;}
 .main a figure img {width: 100%; display: block; margin-bottom: 25px; transition-duration: 0.8s;}
 .main a:hover figure img {transform: scale(1.1);}
 .main a:nth-child(n+4) {margin-top: 80px;}
-.main a figure figcaption span {position: relative; font-size: 18px; color: #000; padding: 0 15px; transition-property: color; transition-delay: 0.3s;}
 .main a figure figcaption {text-align: center;}
-.main a figure figcaption span::before {content: ''; position: absolute; top: 0; left: 0px; width: 30px; height: 30px; border-radius: 50px; z-index: -1; transition-duration: 0.6s;}
+.main a figure figcaption span {position: relative; font-size: 20px; color: #000; padding: 0 15px; transition-property: color; transition-delay: 0.3s;}
+.main a figure figcaption span::before {content: ''; position: absolute; top: -5px; left: 0px; width: 30px; height: 30px; border-radius: 50px; z-index: -1; transition-duration: 0.6s;}
 .main a:hover figure figcaption span {color: #fff;}
 .main a:nth-child(2) figure figcaption span::before {background-color: #F57171;}
 .main a:nth-child(1) figure figcaption span::before {background-color: #F5C140;}

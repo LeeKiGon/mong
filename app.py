@@ -3,6 +3,7 @@ import jwt
 import datetime
 import hashlib
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -17,12 +18,35 @@ db = client.userinfo
 ##메인페이지
 @app.route('/main')
 def main():
-    return render_template("main.html")
+    return render_template('main.html')
 
 ##상세페이지
-@app.route('/sub')
-def sub():
-    return render_template("sub.html")
+# API 역할을 하는 부분
+@app.route('/api/sub', methods=['GET'])
+def happy():
+    mlist = list(db.happy_list.find({}, {'_id': False}))
+    return jsonify({'mong_list': mlist})
+
+@app.route('/review', methods=['POST'])
+def saving():
+    comment_receive = request.form['comment_give']
+    doc = {
+        'comment': comment_receive
+    }
+    db.review.insert_one(doc)
+    return jsonify({'msg': '저장 되었습니다!'})
+
+
+@app.route('/api/review', methods=['GET'])
+def review():
+    review = list(db.review.find({}, {'_id': False}))
+    return jsonify({'review_list': review})
+
+@app.route('/api/delete', methods=['POST'])
+def delete_star():
+    comment_receive = request.form['comment_give']
+    db.review.delete_one({'comment': comment_receive})
+    return jsonify({'msg': '삭제 완료!'})
 
 ##로딩페이지
 @app.route('/loading')
@@ -35,8 +59,8 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.userinfo.find_one({"username": payload["id"]})
-        return render_template('loading.html', user_info=user_info)
+        json.dumps((payload))
+        return render_template('login.html')
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
@@ -46,7 +70,7 @@ def home():
 @app.route('/login')
 def login():
     msg = request.args.get("msg")
-    return render_template('login.html', msg=msg)
+    return render_template("login.html", msg=msg)
 
 
 # [로그인 API}
@@ -68,7 +92,7 @@ def api_login():
             'id': id_receive,
             'exp': datetime.utcnow() + timedelta(seconds=60 * 60 * 24)  # 로그인 24시간 유지
         }
-        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256').decode('utf-8')
+        token = jwt.encode(payload, SECRET_KEY)
 
         # token 전달
         return jsonify({'result': 'success', 'token': token})

@@ -261,3 +261,125 @@ function sign_out() {
 };
 //fin main
 
+//sub page start
+
+//happy
+
+        $(document).ready(function () {
+            happy(), happy2(), re()
+        });
+
+        //크롤링한 음악리스트를 뿌려줍니다
+        function happy() {
+            $.ajax({
+                type: "GET",
+                url: "/api/sub",
+                data: {},
+                success: function (response) {
+                    let mong = response['mong_list']
+                    for (let i = 0; i < mong.length; i++) {
+                        let number = mong[i]['number']
+                        let name = mong[i]['name']
+                        let title = mong[i]['title']
+                        let img = mong[i]['img_url']
+                        let album = mong[i]['album']
+
+                        let temp_html = `<tr>
+                                            <td class="align-middle"><input type="checkbox"></td>
+                                            <th scope="row" style="width: 5px" class="align-middle">${number}</th>
+                                            <td><img src="${img}" width=90 height=90</td>
+                                            <td valign=center style="font-size: 24px" class="align-middle">${title}
+                                            <p style="font-size: 15px">${name}</p></td>
+                                            <td class="align-middle">${album}</td>
+                                        </tr>`
+                        $('#box').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        //앨범 정보를 뿌려줍니다(제작자, 곡수, 연관태그)
+        function happy2() {
+            $.ajax({
+                type: "GET",
+                url: "/api/sub",
+                data: {},
+                success: function (response) {
+                    let mong = response['mong_list']
+                    for (let i = 0; i < 1; i++) {
+                        let make_name = mong[i]['make_name']
+                        let m_number = mong[i]['m_number']
+                        let tag = mong[i]['tag']
+
+                        let temp_html = `<img src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/079/604/420/79604420_1573103619392_1_140x140.JPG/dims/resize/Q_80,0"
+                                                 class="img" style="float:left; padding-right:50px;">
+                                         <p style="margin-top: 50px; padding-top: 20px;" class="align-middle">제작자 : ${make_name}</p>
+                                         <p>곡수 : ${m_number}</p>
+                                         <p>연관태그 : ${tag}</p>`
+                        $('#m-title').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        //댓글을 저장합니다.
+        function rArticle() {
+            let comment = $('#reviewbox').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/api/review",
+                data: {comment_give: comment},
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            });
+        }
+
+        //댓글 창 자동 영역 확장
+        function adjustHeight() {
+            let textEle = $('textarea');
+            textEle[0].style.height = 'auto';
+            let textEleHeight = textEle.prop('scrollHeight');
+            textEle.css('height', textEleHeight);
+        };
+
+        //댓글 가져와서 보여주기!!
+        function re() {
+            $.ajax({
+                type: "GET",
+                url: "/api/review",
+                data: {},
+                success: function (response) {
+                    let mong = response['review_list']
+                    for (let i = 0; i < mong.length; i++) {
+                        let comment = mong[i]['comment']
+                        let temp_html = `<li class="list-group-item" >
+                                            <img src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_77.png?type=c77_77" style="float:left; width:50px; height:50px;">
+                                            <p style="width:700px; height:60px; margin: 0px 0px 0px 70px;">${comment}</p>
+                                            <p>123123</p>
+                                            <button style="float: right; margin:-100px 0px 0px -100px;" type="button" class="btn btn-primary" onclick="review_delete('${comment}')">삭제</button>
+                                         </li>`
+                        $('#r-box').append(temp_html)
+                        console.log(comment)
+                    }
+                }
+            })
+        }
+
+        //댓글 삭제!!
+        function review_delete(comment) {
+            $.ajax({
+                type: 'POST',
+                url: '/api/delete',
+                data: {comment_give: comment},
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload()
+                }
+            });
+        }
+
+
+

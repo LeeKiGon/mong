@@ -15,43 +15,60 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/layout.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
+</head>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+<body>
+<div class="top-line">
 
-    <style>
-        .img {
-            width: 250px;
-            height: 250px;
-            margin: 20px 0px 0px 0px;
-        }
-        .wrap {
-            width: 800px;
-            margin: 80px 0px 0px 600px;
-            height: 300px;
-            border: 10px;
-            float: left;
-        }
-        .top-line {
-            width: 500px;
-            margin: 10px 10px 10px 10px;
-        }
-        .table{
-            width: 1020px;
-            margin: auto;
-            height: 200px;
-        }
+</div>
+<div class="wrap" id="m-title">
+</div>
+<div>
+<table class="table" id="box">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">NO</th>
+        <th scope="col">이미지</th>
+        <th scope="col">곡정보</th>
+        <th scope="col">앨범</th>
+    </tr>
+    </thead>
+    <tbody>
 
-    </style>
-    <script>
+    </tbody>
+</table>
+    <div class="card mb-2" style="white:900px; height: 300px; margin: 30px 450px 450px 450px;">
+	<div class="card-header bg-light" >
+	        <i class="fa fa-comment fa"></i>댓글창
+	</div>
+	<div class="card-body" onkeyup="adjustHeight();" >
+		<ul class="list-group list-group-flush">
+		    <li class="list-group-item" >
+            <hr id="r-box">1</hr>
+			<textarea class="form-control"rows="3"></textarea>
+			<button type="button" class="btn btn-dark mt-3" onclick="rArticle()">댓글 입력</button>
+		    </li>
+		</ul>
+	</div>
+</div>
 
+</div>
+{% include "global/header.html" %}
+{% include "global/footer.html" %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='js/common.js')}}"></script>
+<script>
         $(document).ready(function () {
             sleep(), sleep2(), re()
         });
@@ -148,46 +165,5 @@
                 }
             })
         }
-    </script>
-
-</head>
-
-<body>
-<div class="top-line">
-
-</div>
-<div class="wrap" id="m-title">
-</div>
-<div>
-<table class="table" id="box">
-    <thead>
-    <tr>
-        <th scope="col"></th>
-        <th scope="col">NO</th>
-        <th scope="col">이미지</th>
-        <th scope="col">곡정보</th>
-        <th scope="col">앨범</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
-    <div class="card mb-2" style="white:900px; height: 300px; margin: 30px 450px 450px 450px;">
-	<div class="card-header bg-light" >
-	        <i class="fa fa-comment fa"></i>댓글창
-	</div>
-	<div class="card-body" onkeyup="adjustHeight();" >
-		<ul class="list-group list-group-flush">
-		    <li class="list-group-item" >
-            <hr id="r-box">1</hr>
-			<textarea class="form-control"rows="3"></textarea>
-			<button type="button" class="btn btn-dark mt-3" onclick="rArticle()">댓글 입력</button>
-		    </li>
-		</ul>
-	</div>
-</div>
-
-</div>
-
+</script>
 </body>

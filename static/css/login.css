@@ -5,3 +5,4 @@
 .button.is-sparta {background-color: #00675b; border-color: transparent; color: #fff !important;}
 .button.is-sparta.is-outlined {background-color: transparent; border-color: #00675b;color: #00675b !important; font-family: 'Jua', sans-serif;}
 .help {color: gray;}
+input, button {font-family: 'Jua', sans-serif !important; letter-spacing: 1px;}

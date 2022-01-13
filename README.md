@@ -16,7 +16,7 @@
  ### http://stgon.shop/
  
  # 3. 데모영상
- ### https://www.youtube.com/watch?v=03t37T9Cc6E
+ ### https://www.youtube.com/watch?v=lmmTD7KQfpE
  
  # 4. 기술 스택
  * bulma

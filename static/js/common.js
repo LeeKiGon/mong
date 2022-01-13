@@ -257,6 +257,7 @@ var progressWarp = $('.progress_bar'),
 
 //main start
 function sign_out() {
-    alert('로그아웃!');
-};
+    $.removeCookie('mytoken', {path: '/'});
+    alert('로그아웃!')
+}
 //fin main

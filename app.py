@@ -18,9 +18,16 @@ client = MongoClient('mongodb://test:test@13.125.48.221/.dbuserinfo')
 db = client.dbuserinfo
 
 ##메인페이지
+#payload로 부터 id를 꺼내와 실제 user의 정보를 읽어옴
 @app.route('/main')
-def main():
-    return render_template('main.html')
+def home():
+    token_receive = request.cookies.get('mytoken')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.user.find_one({"id": payload['id']})
+        return render_template('main.html', nick=user_info["nick"])
+    except jwt.exceptions.DecodeError:
+        return redirect(url_for("login", msg="로그인을 해 주세요!"))
 
 ##상세페이지
 # API 역할을 하는 부분
@@ -292,18 +299,6 @@ def eht_html():
 def sleep_html():
     return render_template("sleep.html")
 
-#payload로 부터 id를 꺼내와 실제 user의 정보를 읽어옴
-@app.route('/loading')
-def home():
-    token_receive = request.cookies.get('mytoken')
-    try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-
-        return render_template('login.html')
-    except jwt.ExpiredSignatureError:
-        return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
-    except jwt.exceptions.DecodeError:
-        return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
 
 @app.route('/login')
 def login():
@@ -330,7 +325,7 @@ def api_login():
             'id': id_receive,
             'exp': datetime.utcnow() + timedelta(seconds=60 * 60 * 24)  # 로그인 24시간 유지
         }
-        token = jwt.encode(payload, SECRET_KEY)
+        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
         # token 전달
         return jsonify({'result': 'success', 'token': token})

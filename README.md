@@ -1,4 +1,4 @@
- # ![img_loading](https://user-images.githubusercontent.com/96720419/149255562-25e08d6b-6431-4924-80bd-f7aeba329796.png)Mong 
+ # <img src="https://user-images.githubusercontent.com/96720419/149255562-25e08d6b-6431-4924-80bd-f7aeba329796.png" width="100" height="100"/> Mong 
  수시로 달라지는 감정들!! 당신의 지금 감정은??  
  감성에 맞는 태그별로 음악을 공유받으세요!!  
  감성 태그에 맞춰 음악을 공유해주는 음악 및 댓글을 공유하는 플랫폼!

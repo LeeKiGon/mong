@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Webpage Title -->
+    <title>Worry | MONG</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="MONG - 고민 있을 때 듣는 음악을 공유해주세요!"/>
+    <meta property="og:description" content="mini project for Web Plus"/>
+    <meta property="og:image" content="{{ url_for('static', filename='img/icon_worry.png') }}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/layout.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
+</head>
+
+<body class="main_page">
+{% include "global/header.html" %}
+<div class="top-line">
+
+</div>
+<div class="wrap" id="m-title">
+</div>
+<div>
+<table class="table" id="box">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">NO</th>
+        <th scope="col">이미지</th>
+        <th scope="col">곡정보</th>
+        <th scope="col">앨범</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+    <div class="card mb-2" style="white:900px; margin: 30px 450px 450px 450px;">
+	<div class="card-header bg-light" >
+	        <i class="fa fa-comment fa"></i>댓글창
+	</div>
+	<div class="card-body" onkeyup="adjustHeight();" >
+		<ul class="list-group list-group-flush">
+		    <li class="list-group-item" >
+            <hr id="r-box">1</hr>
+			<textarea class="form-control"rows="3"></textarea>
+			<button type="button" class="btn btn-dark mt-3" onclick="rArticle()">댓글 입력</button>
+		    </li>
+		</ul>
+	</div>
+</div>
+
+</div>
+{% include "global/footer.html" %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='js/common.js')}}"></script>
+<script src="{{url_for('static', filename='js/worry.js')}}"></script>
+</body>

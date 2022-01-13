@@ -1,68 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Webpage Title -->
+    <title>Main | MONG</title>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mong</title>
+    <meta property="og:title" content="MONG - 지금 기분에는 어떤 노래가 좋을까요?"/>
+    <meta property="og:description" content="mini project for Web Plus"/>
+    <meta property="og:image" content="{{ url_for('static', filename='img/og_loading.png') }}"/>
     <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="main_page">
 {% include "global/header.html" %}
-<!--main-->
     <section class="main">
-        <a href="/">
+        <a href="/happy">
             <figure>
                 <img src="../static/img/icon_happy.png" alt="기쁨 태그 이미지">
                 <figcaption><span>#기쁨</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/flutter">
             <figure>
                 <img src="../static/img/icon_flutter.png" alt="설렘 태그 이미지">
                 <figcaption><span>#설렘</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/worry">
             <figure>
                 <img src="../static/img/icon_worry.png" alt="고민 태그 이미지">
                 <figcaption><span>#일/공부</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/cvs">
             <figure>
                 <img src="../static/img/icon_cvs.png" alt="기분전환 태그 이미지">
                 <figcaption><span>#기분전환</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/sad">
             <figure>
                 <img src="../static/img/icon_sad.png" alt="슬픔 태그 이미지">
                 <figcaption><span>#슬픔</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/comfort">
             <figure>
                 <img src="../static/img/icon_comfort.png" alt="위로 태그 이미지">
                 <figcaption><span>#위로</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/anger">
             <figure>
                 <img src="../static/img/icon_anger.png" alt="분노 태그 이미지">
                 <figcaption><span>#분노</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/eht">
             <figure>
                 <img src="../static/img/icon_eht.png" alt="지침 태그 이미지">
                 <figcaption><span>#지침</span></figcaption>
             </figure>
         </a>
-        <a href="/sub">
+        <a href="/sleep">
             <figure>
                 <img src="../static/img/icon_sleep.png" alt="자기전 태그 이미지">
                 <figcaption><span>#새벽</span></figcaption>
@@ -70,7 +74,8 @@
         </a>
     </section>
 {% include "global/footer.html" %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="{{url_for('static', filename='js/common.js')}}"></script>
 </body>
 </html>

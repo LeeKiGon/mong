@@ -2,3 +2,4 @@
 .wrap {width: 800px; margin: 80px 0px 0px 600px; height: 300px; border: 10px; float: left;}
 .top-line {width: 500px; margin: 10px 10px 10px 10px;}
 .table {width: 1020px; margin: auto; height: 200px;}
+hr {height: auto !important;}

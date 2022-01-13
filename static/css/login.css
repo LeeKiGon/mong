@@ -1,7 +1,0 @@
-.section {padding: 1rem 1.5rem; max-width: 750px; margin: 40px auto;}
-.title {font-weight: 800; font-size: 5rem;}
-.subtitle {font-size: 2rem;}
-.is-sparta {color: #00675b !important;}
-.button.is-sparta {background-color: #00675b; border-color: transparent; color: #fff !important;}
-.button.is-sparta.is-outlined {background-color: transparent; border-color: #00675b;color: #00675b !important; font-family: 'Jua', sans-serif;}
-.help {color: gray;}

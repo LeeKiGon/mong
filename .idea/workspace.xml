@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="4032dd42-31db-40ba-bc59-69f908537d33" name="Changes" comment="" />
-=======
-    <list default="true" id="4032dd42-31db-40ba-bc59-69f908537d33" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/anger.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/anger.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/comfort.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comfort.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cvs.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eht.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eht.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flutter.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/flutter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/happy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/happy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sad.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sad.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sleep.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sleep.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/worry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/worry.html" afterDir="false" />
-    </list>
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +14,17 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -51,10 +45,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -68,17 +61,6 @@
     <configuration name="flutter.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app.py/templates/flutter.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-=======
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Lilly\Desktop\test\templates\layout" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Flask server.Flask (app.py)">
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
     <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/templates/login.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -144,13 +126,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Flask server.Flask (app.py)" />
-        <item itemvalue="JavaScript Debug.login.html" />
         <item itemvalue="Python.crawling" />
-<<<<<<< HEAD
         <item itemvalue="JavaScript Debug.flutter.html" />
         <item itemvalue="JavaScript Debug.login.html" />
-=======
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +141,8 @@
       <option name="presentableId" value="Default" />
       <updated>1641968875955</updated>
       <workItem from="1641968882426" duration="16314000" />
+      <workItem from="1642012510399" duration="28000" />
+      <workItem from="1642031666151" duration="1747000" />
     </task>
     <servers />
   </component>
@@ -179,18 +159,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/app_py$Flask__app_py___1_.coverage" NAME="Flask (app.py) (1) Coverage Results" MODIFIED="1641991512916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/app_py$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1642005370760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1641983363455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/test$test.coverage" NAME="test Coverage Results" MODIFIED="1641983030649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/test$crawling.coverage" NAME="crawling Coverage Results" MODIFIED="1641969083734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/app_py$crawling.coverage" NAME="crawling Coverage Results" MODIFIED="1642005361318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-=======
-    <SUITE FILE_PATH="coverage/test$crawling.coverage" NAME="crawling Coverage Results" MODIFIED="1641969083734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/test$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1641987685520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
   </component>
 </project>

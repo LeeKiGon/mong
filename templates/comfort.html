@@ -19,17 +19,18 @@
     <link href="{{ url_for('static', filename='css/header.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/layout.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
-<<<<<<< HEAD
 
-=======
-</head>
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
 
-<body>
-{% include "global/header.html" %}
-<div class="top-line">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
     <style>
         .img {
             width: 250px;
@@ -59,53 +60,6 @@
     </style>
     <script>
         //로딩시 앨범정보, 음악리스트, 댓글을 불러옵니다 .
-=======
-</div>
-<div class="wrap" id="m-title">
-</div>
-<div>
-<table class="table" id="box">
-    <thead>
-    <tr>
-        <th scope="col"></th>
-        <th scope="col">NO</th>
-        <th scope="col">이미지</th>
-        <th scope="col">곡정보</th>
-        <th scope="col">앨범</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
-    <div class="card mb-2" style="white:900px; height: 300px; margin: 30px 450px 450px 450px;">
-	<div class="card-header bg-light" >
-	        <i class="fa fa-comment fa"></i>댓글창
-	</div>
-	<div class="card-body" onkeyup="adjustHeight();" >
-		<ul class="list-group list-group-flush">
-		    <li class="list-group-item" >
-            <hr id="r-box">1</hr>
-			<textarea class="form-control"rows="3"></textarea>
-			<button type="button" class="btn btn-dark mt-3" onclick="rArticle()">댓글 입력</button>
-		    </li>
-		</ul>
-	</div>
-</div>
-
-</div>
-{% include "global/footer.html" %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="{{url_for('static', filename='js/common.js')}}"></script>
-<script>
-
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
         $(document).ready(function () {
             comfort(), comfort2(), re()
         });
@@ -214,7 +168,6 @@
                 }
             })
         }
-<<<<<<< HEAD
 
         //댓글 삭제!!
         function review_delete(comment) {
@@ -271,7 +224,4 @@
     </div>
 </div>
 {% include "global/footer.html" %}
-=======
-</script>
->>>>>>> d78ada771029323a0c9753db125593c60968c45b
 </body>

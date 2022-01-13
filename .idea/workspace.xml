@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91b4e9cf-de3a-4f3e-84f5-a91a6f4b3642" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/mong-gon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/anger.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/anger.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/comfort.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comfort.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cvs.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eht.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eht.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flutter.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/flutter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/happy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/happy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sad.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sad.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sleep.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sleep.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/worry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/worry.html" afterDir="false" />
-    </list>
+    <list default="true" id="91b4e9cf-de3a-4f3e-84f5-a91a6f4b3642" name="Changes" comment="js 파일 분할" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,8 +61,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642033975894</updated>
-      <workItem from="1642033978898" duration="804000" />
+      <workItem from="1642033978898" duration="1106000" />
     </task>
+    <task id="LOCAL-00001" summary="js 파일 분할">
+      <created>1642035076486</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642035076486</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,5 +86,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="js 파일 분할" />
+    <option name="LAST_COMMIT_MESSAGE" value="js 파일 분할" />
   </component>
 </project>

@@ -18,6 +18,30 @@
  # 3. 데모영상
  ### https://www.youtube.com/watch?v=lmmTD7KQfpE
  
+ </br>
+  
+
+#### 🐵 로딩 페이지 + 로그인 페이지 (로그인 실패)
+
+![로딩 로그인실패](https://user-images.githubusercontent.com/77830226/152694717-eaace9a0-0100-42ff-9e22-c671fc52b5e6.gif)
+
+</br>
+
+#### 🐵 회원가입 페이지 (회원가입 과정)
+![회원가입](https://user-images.githubusercontent.com/77830226/152694720-4a9a9dc2-1d9e-414a-9da5-80b464c90d96.gif)
+</br>
+
+#### 🐵 회원가입완료 + 로그인 성공
+![회원가입완료 로그인성공](https://user-images.githubusercontent.com/77830226/152694721-1801abf6-35c7-49a6-bc31-41e11c7d3b40.gif)
+
+</br>
+
+#### 🐵 메인 페이지 + 상세 페이지 (댓글 입력 및 삭제)
+![메인 상세댓글](https://user-images.githubusercontent.com/77830226/152694724-66f22eeb-476b-4318-ad5e-6cd4bd1e981a.gif)
+
+
+  </br></br>
+ 
  # 4. 기술 스택
  * bulma
  * bootstrap
